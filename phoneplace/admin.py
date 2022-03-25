@@ -7,32 +7,29 @@ from tracker.models import Tracker
 
 
 class ScrapPhoneplace:
-    fin = []
+        fin = []
 
-    def trackprice(self, link):
-        res = requests.get(link)
-        sp = BeautifulSoup(res.content, 'lxml')
+        def trackprice(self, link):
+            res = requests.get(link)
+            sp = BeautifulSoup(res.content, 'lxml')
 
-        allphones = sp.find('ul', {"class": ["products", "columns-4", " columns__wide--5"]})
-        phones = allphones.find_all("span", {"class": "gtm4wp_productdata"})
+            allphones = sp.find('ul', {"class": ["products", "columns-4", " columns__wide--5"]})
+            phones = allphones.find_all("span", {"class": "gtm4wp_productdata"})
 
-        for g in phones:
-            data = {
-                "name": g.attrs.get("data-gtm4wp_product_name"),
-                "price": float(g.attrs.get("data-gtm4wp_product_price")),
-                "link": g.attrs.get("data-gtm4wp_product_url")
+            for g in phones:
+                data = {
+                    "name": g.attrs.get("data-gtm4wp_product_name"),
+                    "price": float(g.attrs.get("data-gtm4wp_product_price")),
+                    "link": g.attrs.get("data-gtm4wp_product_url"),
 
-            }
-            self.fin.append(data)
-            SubCategory.objects.create(
-                category_id=1,
-                name=data["name"],
-                current_price=data["price"],
-                link=data["link"])
-        return self.fin
 
-    def allPrices(self):
-        return list(SubCategory.objects.filter(link__icontains='phoneplacekenya').values('name', 'current_price'))
+               }
+                self.fin.append(data)
+
+            return self.fin
+
+        def allPrices(self):
+            return list(SubCategory.objects.filter(link__icontains='phoneplacekenya').values('name', 'current_price'))
 
 
 
