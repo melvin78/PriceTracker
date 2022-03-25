@@ -24,10 +24,18 @@ class ScrapPhoneplace:
 
             }
             self.fin.append(data)
+            SubCategory.objects.create(
+                category_id=1,
+                name=data["name"],
+                current_price=data["price"],
+                link=data["link"])
         return self.fin
 
     def allPrices(self):
         return list(SubCategory.objects.filter(link__icontains='phoneplacekenya').values('name', 'current_price'))
+
+
+
 
 
 class new_data_phoneplace:
