@@ -46,8 +46,7 @@ class new_data_phoneplace:
                     subcategory_id=ids[0],
                     price=price
                 )
-            else:
-                print('web price is' + str(price) + 'and old price' + str(oldprice))
+
         else:
 
             Tracker.objects.create(
