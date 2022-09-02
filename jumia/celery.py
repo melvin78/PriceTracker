@@ -1,5 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-
+from celery.schedules import crontab
 import os
 
 from celery import Celery
@@ -16,8 +16,18 @@ app = Celery('jumia')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
+app.conf.beat_schedule = {
+
+    "every minute": {
+        "task": "compare_phoneplace",
+        'schedule': crontab(hour="*/12"),
+    }
+}
+
 app.autodiscover_tasks()
 
+#
+# def debug_task(self):
+#     print('Request: {0!r}'.format(self.request))
 
-def debug_task(self):
-    print('Request: {0!r}'.format(self.request))
+

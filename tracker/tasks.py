@@ -8,7 +8,7 @@ from jumia.celery import app
 init()
 
 
-@app.task(bind=True)
+@app.task(bind=True,name="compare_phoneplace")
 def compare_phoneplace(self):
     dataset_phoneplace = Categories.objects.filter(website_id=2).values('link', 'idcategories')
 

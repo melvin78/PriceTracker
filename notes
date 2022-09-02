@@ -1,0 +1,2 @@
+celery -A <proj_name> worker -l info -P gevent
+celery -A jumia beat -l info
