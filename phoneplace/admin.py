@@ -53,3 +53,12 @@ class new_data_phoneplace:
                 subcategory_id=ids[0],
                 price=price
             )
+
+
+class ScrapPakaKumi:
+    fin = []
+
+    def track_burst(self,link):
+        res = requests.get(link)
+
+        return res

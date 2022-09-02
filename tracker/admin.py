@@ -3,7 +3,9 @@ from phoneplace.admin import ScrapPhoneplace, new_data_phoneplace
 from subcategory.models import SubCategory
 from termcolor import colored
 from colorama import init
+
 init()
+
 
 def compare_phoneplace():
         dataset_phoneplace = Categories.objects.filter(website_id=2).values('link', 'idcategories')
@@ -23,8 +25,8 @@ def compare_phoneplace():
                     new_data_phoneplace().update_db(item_web['name'], item_web['price'])
                     pricedrop = float(res_db['current_price']) - float(item_web['price'])
                     print(colored(item_web['name'], 'blue') + ' was priced at ' +
-                        colored(res_db['current_price'], 'magenta') + ' its now priced at ' +
-                        colored(item_web['price'],'cyan') + ' a price drop of ' + colored(pricedrop,'green'))
+                          colored(res_db['current_price'], 'magenta') + ' its now priced at ' +
+                          colored(item_web['price'], 'cyan') + ' a price drop of ' + colored(pricedrop, 'green'))
             else:
                 ids = Categories.objects.filter(category_name__icontains=item_web['name'].split()[0]).values('idcategories')
                 ins = SubCategory(
