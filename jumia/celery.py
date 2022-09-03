@@ -21,7 +21,7 @@ app.conf.beat_schedule = {
 
     "every minute": {
         "task": "compare_phoneplace",
-        'schedule': crontab(hour="*/12"),
+        'schedule': crontab(hour='*/2'),
     }
 }
 
