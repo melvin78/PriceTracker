@@ -19,7 +19,7 @@ app.conf.timezone = 'UTC'
 # Load task modules from all registered Django app configs.
 app.conf.beat_schedule = {
 
-    "every minute": {
+    "every two hours": {
         "task": "compare_phoneplace",
         'schedule': crontab(hour='*/2'),
     }
