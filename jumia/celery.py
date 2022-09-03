@@ -15,6 +15,7 @@ app = Celery('jumia')
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+app.conf.timezone = 'UTC'
 # Load task modules from all registered Django app configs.
 app.conf.beat_schedule = {
 
