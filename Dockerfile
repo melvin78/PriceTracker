@@ -2,7 +2,7 @@ FROM python:3.10.6-alpine
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update && apk upgrade && apk add --no-cache make g++ bash git openssh postgresql-dev curl supervisor
+RUN apk update && apk upgrade && apk add --no-cache make g++ bash mysql-client git openssh  libmysqlclient-dev curl supervisor
 
 RUN mkdir -p /usr/src/app
 
