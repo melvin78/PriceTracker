@@ -1,4 +1,4 @@
-<p align="center"><a href="https://cinema.webmelvin.me" target="_blank"><img src="https://cinema.webmelvin.me/popcorn.png" width="400"></a></p>
+<p align="center"><a href="https://price-tracker.webmelvin.me" target="_blank"><img src="https://price-tracker.webmelvin.me/price-tag.png" width="400"></a></p>
 
 ## Demo
 
